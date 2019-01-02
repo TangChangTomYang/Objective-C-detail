@@ -20,6 +20,7 @@ clang -rewrite-objc main.m -o main.cpp
 代码都是有差异的,因此上面的代码不恰当
 ```
 
+![](/assets/maincpp.png)
 方式2:(推荐)
 ```
 xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc main.c -o main.m
