@@ -28,6 +28,10 @@ xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc main.c -o main.m
 使用Xcode sdk 提供的代码工具, 将Objective 装换成指定架构下的C/C++ 代码
 ```
 
+4、NSObject 的底层实现
+
+![](/assets/ocdcsx.png)
+从上面可以看出, NSObject 的底层实现就是C++中的结构体(其实在C++ 类和结构体的用法差异很小), 因此可以得出结论, 一个NSObject 对象占用的大小就是结构体内部成员(结构体指针)的大小(64位 8个字节)
 
 
 
