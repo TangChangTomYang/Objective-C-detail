@@ -64,10 +64,10 @@ struct studen{
 
 <br><br>
 7、 关于实例对象的大小和分配内存大小的说明
-1> 获取实例对象大小
+1> 获取实例对象大小(最大成员变量倍数)
 ![](/assets/Snip20190104_2.png)
 
-2> 指针分配空间大小
+2> 指针分配空间大小 (16 的倍数)
 ![](/assets/Snip20190104_3.png)
 
 3> 详解如下:
@@ -87,7 +87,7 @@ int main(int argc, const char * argv[]) {
     NSLog(@"NSObject 实例的大小 %zd",instanceSize);
     
     //2.获得obj 指针分配的大小(堆空间大小)
-    //注意:  malloc_size  获取的是分配空间大小, 最小为16, 如果大于16 就为实例成员的大小一致
+    //注意:  malloc_size  获取的是分配空间大小, 最小为16, 如果大于16 就是16的倍数
     size_t mallocSize = malloc_size((__bridge const void *)obj);
     NSLog(@" 获取 一个指针分配的内存大小 %zd",mallocSize);
   
@@ -95,6 +95,8 @@ int main(int argc, const char * argv[]) {
 }
 ```
 
+mallocSize 分配内存的对齐方式(16 的 倍数)
+![](/assets/Snip20190104_6.png)
 
 
 <br><br>
