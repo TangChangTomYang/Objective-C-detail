@@ -33,7 +33,14 @@ xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc main.c -o main.m
 4、NSObject 的底层实现
 
 ![](/assets/ocdcsx.png)
-从上面可以看出, NSObject 的底层实现就是C++中的结构体(其实在C++ 类和结构体的用法差异很小), 因此可以得出结论, 一个NSObject 对象占用的大小就是结构体内部成员(结构体指针)的大小(64位 8个字节)
+从上面可以看出, NSObject 的底层实现就是C++中的结构体(其实在C++ 中类和结构体的用法差异很小)
+
+
+<br><br>
+5 一个NSObject 对象占用多少内存
+1> 从第4点我们猜测一个NSObject对象的大小就是其底层实现的结构体的大小,因此可能是 8个字节(64位), 但是不一定对, 详解如下:
+![](/assets/dxdx.png)
+
 
 
 
