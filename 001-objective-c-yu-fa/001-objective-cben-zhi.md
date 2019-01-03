@@ -41,6 +41,7 @@ xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc main.c -o main.m
 1> 从第4点我们猜测一个NSObject对象的大小就是其底层实现的结构体的大小,因此可能是 8个字节(64位), 但是不一定对, 详解如下:
 ![](/assets/dxdx.png)
 
+经过查看源码发现, NSObject 中一个对象最少会分配16字节(小于16时取16)
 
 
 
