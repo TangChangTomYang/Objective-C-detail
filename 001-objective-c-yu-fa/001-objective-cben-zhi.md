@@ -44,7 +44,57 @@ xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc main.c -o main.m
 经过查看源码发现, NSObject 中一个对象最少会分配16字节(小于16时取16)
 
 <br><br>
-6、
+6、关于结构体内存大小
+因为内存对齐的原因, 结构体的大小必须是最大成员大小的倍数
+```
+也就是说下面两个结构体的大小相同
+
+struct person{
+ Class isa; // 8
+ int age; // 4
+} // 内存对齐, 是8的倍数, 因此大小为16;
+
+struct studen{
+  Class isa; //8
+  int age; //4 
+  int num; // 4
+} // 内存对齐, 是8 的倍数, 因此是16
+
+```
+
+<br><br>
+7、 关于实例对象的大小和分配内存大小的说明
+1> 获取实例对象大小
+![](/assets/Snip20190104_2.png)
+
+2> 指针分配空间大小
+![](/assets/Snip20190104_3.png)
+
+3> 详解如下:
+```
+#import <Foundation/Foundation.h>
+
+#import <objc/runtime.h> //class_getInstanceSize
+#import <malloc/malloc.h> // 指针堆分配空间大小
+
+int main(int argc, const char * argv[]) {
+    
+    NSObject *obj = [[NSObject alloc] init];
+    //1. 获取一个实例对象,成员对象占用的大小
+    // 注意: class_getInstanceSize 获取的是实例对象成员的大小, 是内存对齐过后的大小
+    // 结构体内存对齐的原则是, 结构体的大小必须是结构体内最大成员的倍数
+    size_t instanceSize = class_getInstanceSize([obj class]);
+    NSLog(@"NSObject 实例的大小 %zd",instanceSize);
+    
+    //2.获得obj 指针分配的大小(堆空间大小)
+    //注意:  malloc_size  获取的是分配空间大小, 最小为16, 如果大于16 就为实例成员的大小一致
+    size_t mallocSize = malloc_size((__bridge const void *)obj);
+    NSLog(@" 获取 一个指针分配的内存大小 %zd",mallocSize);
+  
+    return 0;
+}
+```
+
 
 
 
