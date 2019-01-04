@@ -73,6 +73,10 @@ Class MetaCls2 = object_getClass(objCls2);
 Class MetaCls3 = object_getClass(objCls3);
 
 每个类,在内存中有且仅有一个 元类对象(meta-class)
+
+// 运行时方法,判断一个类是否为元类对象
+
+class_isMetaClass(cls);
 ```
 
 2、类对象和元类对象的内存结构是一样的
