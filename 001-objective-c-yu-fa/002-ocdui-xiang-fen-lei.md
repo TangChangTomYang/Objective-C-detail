@@ -88,6 +88,8 @@ class_isMetaClass(cls);
 3> 类方法(classMethod) , `+` 开头的方法.
 
 
+![](/assets/Snip20190104_9.png)
+
 
 
 
