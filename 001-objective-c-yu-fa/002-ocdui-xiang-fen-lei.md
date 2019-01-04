@@ -1,5 +1,7 @@
-#### OC对象分类
+#### OC对象分类(实例对象、类对象、元类对象)
 
+
+#### 一、实例对象
 
 1、 instance 实例对象
 
@@ -17,3 +19,33 @@ obj1 和 obj2 都是NSObject 的实例对象, 他们占用不同的内存
 1> isa 指针(因为所有的实例对象都继承自NSObject)
 2> 其他所有的成员变量
 3> 不包含类方法和对象方法
+
+
+
+****
+<br><br>
+#### 二、 类对象
+
+1、 获取类对象的方法(3种)
+```
+//1. 实例对象(通过类 alloc 出来的对象都是实例对象, 每个实例对象的内存地址都不同)
+NSObject *obj = [[NSObject alloc] init];
+
+
+//2. 类对象(一个类只有一个类对象), 以下3中方法获取到的都是同一个类对象
+Class objCls = [obj class];
+Class objCls2 = [NSObject class];
+Class objCls3 = object_getClass(obj);
+
+// 0x7fffae929140, 0x7fffae929140, 0x7fffae929140
+NSLog(@"%p, %p, %p", objCls,objCls2,objCls3);
+// 从上面的打印可以看出, 每个类在内存中有且只有一个类对象(Class 对象)
+```
+
+2、 类对象中存储的信息主要包含有:
+1> isa 指针
+2> superClass 指针
+3> 属性信息(@property)
+4> 实例对象方法(instance method) 带`-` 的方法
+5> 类的协议信息(@protocol)
+6> 类的成员变量信息(ivar) , 比如: 成员变量的类型, 名称等等
