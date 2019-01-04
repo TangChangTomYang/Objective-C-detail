@@ -49,3 +49,12 @@ NSLog(@"%p, %p, %p", objCls,objCls2,objCls3);
 4> 实例对象方法(instance method) 带`-` 的方法
 5> 类的协议信息(@protocol)
 6> 类的成员变量信息(ivar) , 比如: 成员变量的类型, 名称等等
+
+
+
+
+
+****
+<br><br>
+#### 三、 元类对象(meta-class)
+
