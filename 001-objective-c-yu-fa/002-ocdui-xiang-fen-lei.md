@@ -80,7 +80,9 @@ class_isMetaClass(cls);
 ```
 
 2、类对象和元类对象的内存结构是一样的
-注意: 虽然类对象和元类对象的内存结构是一样的,但是并并能说明有一样的数据
+
+**注意:** 
+虽然类对象和元类对象的内存结构是一样的,但是并并能说明有一样的数据
 
 3、元类对象中存储的信息主要有
 1> isa 指针
@@ -91,6 +93,24 @@ class_isMetaClass(cls);
 ![](/assets/Snip20190104_9.png)
 
 
+
+****
+<br><br>
+#### 四、 object_getClass()内部实现
+
+
+```
+runtime API
+// 更具名字(类的名子)获取Class
+Class objc_getClass(const char * aClassName);
+
+//更具一个对象(实例对象 或 类对象)获取Class, 通过实例对象获取的是类对象, 通过类对象获取的是元类对象
+Class object_getClass(id  obj) ;
+```
+
+![](/assets/Snip20190105_2.png)
+<br>
+![](/assets/Snip20190105_1.png)
 
 
 
