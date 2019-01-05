@@ -27,6 +27,12 @@ clang -rewrite-objc main.m -o main.cpp
 xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc main.c -o main.m
 
 使用Xcode sdk 提供的代码工具, 将Objective 装换成指定架构下的C/C++ 代码
+
+如果要连接框架
+xcrun -sdk iphoneos clang -arch arm64 -framework UIKit -rewrite-objc main.c -o main.m
+
+使用: -framework UIkit 导入要使用的框架
+
 ```
 <br><br>
 
