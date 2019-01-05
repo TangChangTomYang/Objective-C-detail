@@ -86,6 +86,10 @@ int main(int argc, const char * argv[]) {
 
 <br>
 #### 二、superclass 指针
+<br>
+![](/assets/Snip20190105_5.png)
+
+1、从上面可以看出, 每个class对象都有一个superclass 指针, 指向的是它的父类.
 
 
 
