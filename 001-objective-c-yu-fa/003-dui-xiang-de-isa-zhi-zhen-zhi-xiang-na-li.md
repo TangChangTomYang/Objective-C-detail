@@ -75,7 +75,7 @@ int main(int argc, const char * argv[]) {
 
 0> OC中的3中对象(实例对象/ 类对象/ 元类对象) 都有isa 指针, 只有实例对象中有成员变量
 
-1> 从上面的图我们可以看出, 实例对象(instance 对象)的isa 指针, 指向类对象(class 对象).
+1> 从上面的图我们可以看出, 实例对象(instance 对象)的isa 指针, 指向类对象(class 对象), 类对象的isa 指向元类对象
 
 2> 类对象(class 对象)的isa 指针指向 元类对象(meta-class)
 
@@ -103,4 +103,18 @@ int main(int argc, const char * argv[]) {
 1、从上面可以看出, 每一个元类对象(meta-class) 都有一个superclass.
 2、meta-class 对象的superclass指针指向其父类的meta-class
 3、superclass 的作用就是查找父类    
+
+
+
+
+<br>
+#### 四、 isa / superclass 指针总结
+
+![](/assets/isasuperclass.png)
+
+0> 实例对象只有isa 指针, 类对象和元类对象既有isa指针又有superclass指针.
+
+1> 从上面的图可以看出, 实例对象的isa 指向的是 类对象, 类对象的isa 指针,指向元类对象, 元类对象的isa 都指向元类对象基类.
+
+2> 类对象的superclass 指针指向父类的类对象, 元类对象的superclass指针指向父类的 元类对象, 元类对象的基类的superclass 指向 类对象的基类.
 
