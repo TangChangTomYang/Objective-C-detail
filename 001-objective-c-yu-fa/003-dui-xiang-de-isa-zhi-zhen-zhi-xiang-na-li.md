@@ -85,11 +85,22 @@ int main(int argc, const char * argv[]) {
 
 
 <br>
-#### 二、superclass 指针
-<br>
+#### 二、类对象的 superclass 指针
+
 ![](/assets/Snip20190105_5.png)
 
 1、从上面可以看出, 每个class对象都有一个superclass 指针, 指向的是它的父类.
+2、class对象的superclass指向的是其父类的class对象
+3、superclass 的作用就一个, 就是查找父类
 
 
+
+
+<br>
+#### 三、类对象的 superclass 指针
+
+![](/assets/Snip20190105_6.png)
+1、从上面可以看出, 每一个元类对象(meta-class) 都有一个superclass.
+2、meta-class 对象的superclass指针指向其父类的meta-class
+3、superclass 的作用就是查找父类    
 
