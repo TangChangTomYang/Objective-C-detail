@@ -1,5 +1,9 @@
-#### 对象的 isa 指针指向哪里?
+#### 对象的 isa 指针指向/ superclass 指向哪里
 
+
+
+<br>
+#### 一、isa 指针
 
 **1、 OC 中方法调用的本质: 给某个对象(实例对象/ 类对象)发消息**
 ```
@@ -65,8 +69,11 @@ int main(int argc, const char * argv[]) {
 
 
 <br> <br>
-**2、oc 中 对象的 isa 的指针**
+**2、oc 中 对象的 isa 指针**
+<br>
 ![](/assets/Snip20190105_4.png)
+
+0> OC中的3中对象(实例对象/ 类对象/ 元类对象) 都有isa 指针, 只有实例对象中有成员变量
 
 1> 从上面的图我们可以看出, 实例对象(instance 对象)的isa 指针, 指向类对象(class 对象).
 
@@ -75,5 +82,10 @@ int main(int argc, const char * argv[]) {
 3> 当我们调用对象方法时,其实是给实例对象(instance)发消息,实例对象(instance)通过自己的isa的指针找到类对象(class),最后找到类对象(class)中的方法调用.
 
 4> 当我们调用类方法时,其实是给类对象(class)发消息,类对象(class)通过自己的isa的指针找到元类对象(meta-class),最后找到元类对象(meta-class)中的方法调用.
+
+
+<br>
+#### 二、superclass 指针
+
 
 
