@@ -117,6 +117,12 @@ Class object_getClass(id  obj) ;
 
 
 
+****
+<br><br>
+#### 五、 Objective-C 中3种类型的对象中存储的信息
+
+
+![](/assets/Snip20190105_3.png)
 
 
 
