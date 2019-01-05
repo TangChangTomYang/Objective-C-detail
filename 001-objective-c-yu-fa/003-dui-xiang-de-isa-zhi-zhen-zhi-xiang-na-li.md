@@ -116,5 +116,13 @@ int main(int argc, const char * argv[]) {
 
 1> 从上面的图可以看出, 实例对象的isa 指向的是 类对象, 类对象的isa 指针,指向元类对象, 元类对象的isa 都指向元类对象基类.
 
+1.1> 注意: 虽然实例对象的 isa 指向 类对象, 类对象的 isa 指向 元类对象, 但是都不是直接指向.
+ **查源码发现:**
+实例对象的isa & ISA_MASK = 类对象地址
+类对象的isa & ISA_MASK = 元类对象地址
+![](/assets/Snip20190105_7.png)
+
 2> 类对象的superclass 指针指向父类的类对象, 元类对象的superclass指针指向父类的 元类对象, 元类对象的基类的superclass 指向 类对象的基类.
+
+
 
