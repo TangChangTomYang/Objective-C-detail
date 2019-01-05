@@ -5,6 +5,7 @@
 
 **经过源码验证**我们发现,不管是类对象(Class)还是元类对象(meta-Class), 其内部结构都是 C++ 的结构体 `struct objc_class`, 也就是说类对象(Class)还是元类对象(meta-Class)的内部结构是一样的. 如下图:
 ![](/assets/Snip20190105_8.png)
+只是有些属性在类对象中有值, 有些为NULL, 有写属性在元类对象中有值,有些是NULL
 
 **其实**,
 在C++里面 结构体struct 和class基本没有区别, 只是在struct中成员变量/方法 和Class中的成员变量/ 方法 的默认访问限制不同
