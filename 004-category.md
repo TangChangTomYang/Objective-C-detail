@@ -4,11 +4,14 @@
 #### category 的基本使用
 
 
-1、Category 的实现原理?
+**1、Category 的实现原理?**
 1> Category 的底层实现是 strcut category_t,  里面存储的是方法/ 协议/ 属性等信息.
 2> 在程序运行时,runtime 会将Category 中的数据(方法/ 属性/ 协议) 动态的合并(插入(后编译的在前面))到类(类对象/ 元类对象)中.
 
-2、Category 和 Extension 的区别是什么?
+分类编译后的数据结构:
+![](/assets/Snip20190106_7.png)
+
+**2、Category 和 Extension 的区别是什么?**
 1> 分类中的方法/ 协议/ 属性是在程序执行时 runtime API 动态加载的
 2> 类扩展和类一样, 类扩展中的方法/ 协议/ 属性 是在编译的时候就加载的到当前类(实例对象/ 类对象/ 元类对象)中了.
 
