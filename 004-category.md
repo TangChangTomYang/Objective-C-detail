@@ -7,6 +7,7 @@
 1、Category 的实现原理?
 
 2、Category 和 Extension 的区别是什么?
+分类中的方法/ 协议/ 属性是在程序执行时 runtime API 动态加载的, 而类扩展和类一样, 类扩展中的方法/ 协议/ 属性 是在程序启动的时候就加载的.
 
 3、Category 中有 load 方法吗? load 方法是什么时候调用的? load 方法能继承吗? 
 
