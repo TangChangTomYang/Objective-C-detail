@@ -88,6 +88,105 @@ void _NSSetIntValueAndNotify(){
 
 
 
+<br><br>
+**4、 验证在添加KVO 后, 系统派生的新类重写了 set等几个方法**
+
+```
+
+#import "ViewController.h"
+#import "Person.h"
+#import <objc/runtime.h>
+
+@interface ViewController ()
+@property (strong, nonatomic) Person *person1;
+@property (strong, nonatomic) Person *person2;
+@end
+ 
+@implementation ViewController
+
+- (void)printMethodNamesOfClass:(Class)cls
+{
+    unsigned int count;
+    // 获得方法数组
+    Method *methodList = class_copyMethodList(cls, &count);
+    
+    // 存储方法名
+    NSMutableString *methodNames = [NSMutableString string];
+    
+    // 遍历所有的方法
+    for (int i = 0; i < count; i++) {
+        // 获得方法
+        Method method = methodList[i];
+        // 获得方法名
+        NSString *methodName = NSStringFromSelector(method_getName(method));
+        // 拼接方法名
+        [methodNames appendString:methodName];
+        [methodNames appendString:@"\n"];
+    }
+    
+    // 释放
+    free(methodList);
+    
+    // 打印方法名
+    
+    class_isMetaClass(cls) == YES ?
+    NSLog(@"\n-----%@------对象方法----------------\n%@", cls, methodNames) :
+    NSLog(@"\n-----%@------类方法----------------\n%@", cls, methodNames);
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.person1 = [[Person alloc] init];
+    self.person1.age = 1;
+    
+    self.person2 = [[Person alloc] init];
+    self.person2.age = 2;
+    
+    // 给person1对象添加KVO监听
+    NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld;
+    [self.person1 addObserver:self forKeyPath:@"age" options:options context:@"123"];
+    
+    [self printMethodNamesOfClass:object_getClass(self.person1)];
+    [self printMethodNamesOfClass:object_getClass(self.person2)];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+//    [self.person1 setAge:21];
+    
+    [self.person1 willChangeValueForKey:@"age"];
+    [self.person1 didChangeValueForKey:@"age"];
+}
+
+- (void)dealloc {
+    [self.person1 removeObserver:self forKeyPath:@"age"];
+}
+
+// observeValueForKeyPath:ofObject:change:context:
+// 当监听对象的属性值发生改变时，就会调用
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+    NSLog(@"监听到%@的%@属性值改变了 - %@ - %@", object, keyPath, change, context);
+}
+
+@end
+```
+
+打印结果:
+```
+-----NSKVONotifying_MJPerson------类方法----------------
+setAge:
+class
+dealloc
+_isKVOA
+
+-----MJPerson------类方法----------------
+setAge:
+age
+
+```
+
 
 
 
