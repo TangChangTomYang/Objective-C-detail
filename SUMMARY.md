@@ -17,4 +17,5 @@
   * [002-KVC 面试题](003-kvc/002-kvc-mian-shi-ti.md)
 * [004-Category](004-category.md)
   * [001-category 的底层结构](004-category/001-category-de-di-ceng-jie-gou.md)
+  * [002-Category load 方法](004-category/002-category-load-fang-fa.md)
 
