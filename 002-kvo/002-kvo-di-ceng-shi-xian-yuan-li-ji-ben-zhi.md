@@ -9,7 +9,15 @@
 1> instance 对象添加 KVO后, 系统会自动为当前的类派生一个 **NSKVONotifying_xxxx** 的子类, 并让当前实例对象的isa 指向这个 新的子类
 2> 会重写 -(void)set方法/ -(Class)class 方法/  -(void)dealloc 方法等等.
 3> 当我们修改设置了 KVO的属性值时, 就会调用子类的set方法,从而触发 KVO的监听方法
-4> KVO 的本质是重写set,方法.
+
+
+**1.1、 KVO 的本质**
+
+1> KVO 的本质是通过 `willChangeValueForkey:` 和 `didChangeValueForKey:` 来触发的.
+
+2> 经过验证 发现使用 KVC 来修改属性的值, 其内部会调用`willChangeValueForkey:` 和 `didChangeValueForKey:`, 仍然是会触发KVO的
+3> 也就是说,不论是通过set方法还是通过KVC方法 来修改某个属性的值, 只要先调用`willChangeValueForkey:`在调用`didChangeValueForKey:` 就会触发 KVO.
+
 
 <br><br>
 **2、 KVO 的底层实现应该是这样的**
