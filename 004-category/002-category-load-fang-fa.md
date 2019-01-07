@@ -1,4 +1,4 @@
-#### load 方法
+#### category load 方法
 
 
 ![](/assets/Snip20190106_15.png)

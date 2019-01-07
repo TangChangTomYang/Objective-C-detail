@@ -1,0 +1,1 @@
+#### category initialize 方法
