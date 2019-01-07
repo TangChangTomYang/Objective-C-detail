@@ -18,5 +18,4 @@
 * [004-Category](004-category.md)
   * [001-category 的底层结构](004-category/001-category-de-di-ceng-jie-gou.md)
   * [002-Category load 方法](004-category/002-category-load-fang-fa.md)
-  * [003-category- initiallize 方法](004-category/003-category-initiallize-fang-fa.md)
 
