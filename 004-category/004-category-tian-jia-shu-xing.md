@@ -1,7 +1,8 @@
 #### category 添加属性
 
-
+<br>
 #### 一、属性 @property 知识回顾
+<br>
 1、 当我们给某个类(比如: Person),添加一个属性时(@property (nonatomic ,assign) int age)时, 其实系统帮我们做了3件事情.
 1> 添加一个属性( `int _age;` ).
 2> 添加get 和set的声明( ` -(int)age; 和 -(void)setAge:(int)age;`)
