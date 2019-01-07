@@ -16,8 +16,10 @@
 
 ```objc_msgSend(objc_getClass("NSObject"), @selector(alloc));```
 
-**推理:**
-`objc_msgSend()` 方法应该会判断, 是第几次被调用, 第一次调用就会去调用initialize 方法
+
+<br>
+#### initialize 方法的作用
+因为 `initialize` 方法是在类第一次接收消息前调用, 因此,如果我们想要在类 初始化之前做点事, 那么`initialize` 方法是一个不错的选择.
 
 
 <br><br>
