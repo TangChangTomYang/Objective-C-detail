@@ -5,9 +5,12 @@
 #### initialize 方法调用时刻/ 调用机制/ 调用顺序
 1>、`+(void)initialize; 方法` 会在类第一次接收到消息时被系统调用. 
 2>  `+(void)initialize; 方法`是通过消息机制被系统调用的, 也就是说会优先调用分类中的`+(void)initialize; 方法`.
-3> 如果子类和父类中都有`+(void)initialize; 方法`, 不论 子类有没有主动调用父类的`+(void)initialize; 方法`, 当子类在第一次接收到消息时, 会先调用父类的`+(void)initialize; 方法` 在调用子类的`+(void)initialize; 方法`.<br>
+3> 如果子类和父类中都有`+(void)initialize; 方法`, 不论 子类有没有主动调用父类的`+(void)initialize; 方法`, 当子类在第一次接收到消息时, 会先调用父类(如果父类没调过)的`+(void)initialize; 方法` 再调用子类的`+(void)initialize; 方法`
+4> 如果子类第一次接收消息是,子类没有initialize, 那么系统会调用父类的initialize来初始化子类,保证每个类在第一次接收消息时都会调用一次initialize方法.<br>
 ![](/assets/Snip20190107_1.png)
 
+源码查看顺序
+![](/assets/Snip20190107_2.png)
 
 
 <br><br>
@@ -39,4 +42,7 @@
 1> 类中的load 和分类中的load 都会被调用, 父类中的load比子类中的load 先调用, 类中的load 比分类中的load先调用.
 2> initialize 是通过消息机制调用的, 分类中的initialize 会覆盖类中的initialize, 如果子类和父类中都有initialize, 父类中的initialize 先调用, 子类中的initialize 后调用
 
-
+4、 load方法和initialize方法的最大区别是什么? 
+1> load方法是通过方法指针直接调用的, 而initialize方法是通过消息机制调用的.
+2> laod 方法是在类/ 分类加载到内存是调用的, 而initialize 方法是在类第一次接收到消息时调用的.
+3> 每个类在第一次接收到消息后都会调用一次initialize 方法, 如果自己没有initialize, 就会调用父类的initialize. 即是说, 父类的initialize 方法可能被调用多次.
