@@ -33,7 +33,10 @@
 
 
 2、`+(void)laod; 方法 和 +(void)initialize; ` 方法在category 中的调用顺序是什么?
+1> load 的方法是在类加载到内存 中是被系统调用,而initialize 是在类第一次接收到消息时调用, load 在  initialize 之前调用
 
 3、`+(void)laod; 方法 和 +(void)initialize; ` 方法 在出现继承后,他们之间的调用过程是怎样的?
+1> 类中的load 和分类中的load 都会被调用, 父类中的load比子类中的load 先调用, 类中的load 比分类中的load先调用.
+2> initialize 是通过消息机制调用的, 分类中的initialize 会覆盖类中的initialize, 如果子类和父类中都有initialize, 父类中的initialize 先调用, 子类中的initialize 后调用
 
 
