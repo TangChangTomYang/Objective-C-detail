@@ -89,5 +89,28 @@
 #### Category 面试题
 
 1 Category 能否添加成员变量? 如果可以怎么添加?
+可以给Category 添加成员变量, 但是是通过runtime 的关联对象的方式添加
+
+关联对象的主要结构:
+```
+AssociationsManager:{
+                      map(AssociationsHashMap):[
+                                                 {
+                                                  object : AssociationsMap:[
+                                                                           {
+                                                                            key : Associations:{
+                                                                                            policy
+                                                                                            value
+                                                                                              }
+                                                                           }
+                                                                           ... ...
+                                                 }
+                                                 ... ... 
+                        
+                                               ]
+                       
+                     }
+ ```
+
 
 
