@@ -73,8 +73,12 @@
 <br>
 #### 三、runtime 关联对象,底层实现
 
-
-
+实现关联对象技术的核心对象有4个:
+1> AssociationsManager 
+2> AssociationsHashmap 
+3> ObjectAssociationMap 
+4> ObjecAssociation 
+![](/assets/glyl.png)
 
 <br><br>
 #### Category 面试题
