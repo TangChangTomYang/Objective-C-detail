@@ -80,6 +80,11 @@
 4> ObjecAssociation 
 ![](/assets/glyl.png)
 
+
+也就是说,关联对象不是将数据存储在原来的类或者 分类里面, 而是根据对象自己维护了一张数据表.
+
+
+
 <br><br>
 #### Category 面试题
 
