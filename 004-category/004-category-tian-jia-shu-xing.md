@@ -65,7 +65,7 @@
 方式四:
  ![](/assets/fs4.png)
  
-方式五: 
+**方式五: 推荐使用**
 
 ![](/assets/gltjfa.png)
 
