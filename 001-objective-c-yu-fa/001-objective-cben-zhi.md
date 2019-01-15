@@ -4,22 +4,28 @@
 
 
 
-<br><br>
+
+
+<br> 
 **2、Objective-C中的对象、类主要是基于C/C++中的结构体数据结构实现的.**
 ![](/assets/ocbz.png)
 
-<br><br>
 
+
+
+
+<br>
 **3、Objective-C 代码转换为C/C++**
+
 **1> 方式1: (不推荐)**
 ```
 clang -rewrite-objc main.m -o main.cpp
 
 不推荐的原因:
-1>. 不同的平台代码的实现上都是有差异的(windows/iphone/mac 等)
+1>. 不同的平台代码的实现上都是有差异的(如: windows/iphone/mac 等)
 2>. 虽然上面的指令能将Objective-C 代码转换成C/C++的代码, 
  但是我们不知道它底层转换出来的代码是针对哪个平台的
- (是windows呢?  还是 mac 还是 iphone), 因此不便于我们具体分析问题
+ (是windows呢?  还是mac, 还是 iphone), 因此不便于我们具体分析问题
 3>. 即时是同一个平台(比如: windows) 32位机器和64位机器,其执行的C/C++ 
 代码都是有差异的,因此上面的代码不恰当
 ```
