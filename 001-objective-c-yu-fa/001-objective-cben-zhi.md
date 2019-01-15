@@ -31,11 +31,13 @@ clang -rewrite-objc main.m -o main.cpp
 ```
 
 ![](/assets/maincpp.png)
+
+<br>
 **方式2:(推荐)**
 ```
 xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc main.c -o main.m
 
-使用Xcode sdk 提供的代码工具, 将Objective 装换成指定架构下的C/C++ 代码
+使用Xcode sdk 提供的代码工具, 将Objective 转换成指定架构下的C/C++ 代码
 
 如果要连接框架
 xcrun -sdk iphoneos clang -arch arm64 -framework UIKit -rewrite-objc main.c -o main.m
@@ -43,20 +45,39 @@ xcrun -sdk iphoneos clang -arch arm64 -framework UIKit -rewrite-objc main.c -o m
 使用: -framework UIkit 导入要使用的框架
 
 ```
-<br><br>
 
+
+
+
+
+
+
+
+
+<br><br>
 **4、NSObject 的底层实现**
 
 ![](/assets/ocdcsx.png)
 从上面可以看出, NSObject 的底层实现就是C++中的结构体(其实在C++ 中类和结构体的用法差异很小)
 
 
+
+
+
+
+
+
 <br><br>
 **5、 一个NSObject 对象占用多少内存**
-1> 从第4点我们猜测一个NSObject对象的大小就是其底层实现的结构体的大小,因此可能是 8个字节(64位), 但是不一定对, 详解如下:
+
+1> 从第4点我们猜测一个NSObject对象的大小就是其底层实现的结构体的大小,因此可能是 8个字节(64位), 但实际占用16字节, 详解如下:
 ![](/assets/dxdx.png)
 
 经过查看源码发现, NSObject 中一个对象最少会分配16字节(小于16时取16)
+
+
+
+
 
 
 
@@ -80,12 +101,19 @@ struct studen{
 
 ```
 
+
+
+
+
+
+
 <br><br>
 **7、 关于实例对象的大小和分配内存大小的说明**
-1> 获取实例对象大小(最大成员变量倍数)和sizeof()一样
+
+1> 获取实例对象成员大小和 'sizeof()'一样(是最大成员变量大小的倍数)
 ![](/assets/Snip20190104_2.png)
 
-2> 指针分配空间大小 (16 的倍数)
+2> 获取指针分配空间大小 (16 的倍数)
 ![](/assets/Snip20190104_3.png)
 
 3> 详解如下:
