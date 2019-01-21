@@ -58,7 +58,8 @@ xcrun -sdk iphoneos clang -arch arm64 -framework UIKit -rewrite-objc main.c -o m
 **4、NSObject 的底层实现**
 
 ![](/assets/ocdcsx.png)
-从上面可以看出, NSObject 的底层实现就是C++中的结构体(其实在C++ 中类和结构体的用法差异很小)
+
+从上面可以看出, NSObject 的底层实现就是C++中的结构体**(其实在C++ 中类和结构体的用法差异很小,只是默认访问权限不同而已)**
 
 
 
