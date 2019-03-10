@@ -8,6 +8,7 @@
   * [003- 对象的 isa 指针/superclass指针 指向哪里](001-objective-c-yu-fa/003-dui-xiang-de-isa-zhi-zhen-zhi-xiang-na-li.md)
   * [004- OC的类信息存放在哪里](001-objective-c-yu-fa/004-ocde-lei-xin-xi-cun-fang-zai-na-li.md)
   * [005-Class 方法的本质](001-objective-c-yu-fa/005-class-fang-fa-de-ben-zhi.md)
+  * [006-常用LLDB指令](001-objective-c-yu-fa/006chang-yong-lldb-zhi-ling.md)
 * [002-KVO](002-kvo.md)
   * [001- KVO的基本使用](002-kvo/001-kvode-ji-ben-shi-yong.md)
   * [002-KVO 底层实现原理及本质](002-kvo/002-kvo-di-ceng-shi-xian-yuan-li-ji-ben-zhi.md)
