@@ -147,5 +147,7 @@ struct studen{
 
 ![](/assets/Snip20190312_1.png)
 
+Person 对象和 Student对象都是占用16个字节
+
 
 
